@@ -19,8 +19,8 @@ const DEFAULT_COLOR = SECTION_COLORS.home;
 
 function downloadCV() {
   const a = document.createElement("a");
-  a.href = "/cv-alex-dupont.pdf";
-  a.download = "CV-Yaly-AI-Engineer-MLOps.pdf";
+  a.href = "/mamadouyaly.pdf";
+  a.download = "mamadouyaly.pdf";
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 
@@ -113,12 +113,12 @@ export default function Navbar() {
                 display: "flex", alignItems: "center", justifyContent: "center",
                 color: "#fff", fontFamily: "Outfit, sans-serif", fontWeight: 900, fontSize: 14 }}
               aria-hidden="true">
-              AD
+              MY
             </motion.div>
             <div style={{ lineHeight: 1 }}>
               <span style={{ fontFamily: "Outfit, sans-serif", fontWeight: 800, fontSize: 16,
                   color: "var(--text-primary)", display: "block" }}>
-                Alex<motion.span animate={{ color: activeColor.text }} transition={{ duration: 0.4 }}>.</motion.span>dev
+                yaly<motion.span animate={{ color: activeColor.text }} transition={{ duration: 0.4 }}>.</motion.span>dev
               </span>
               <span style={{ fontSize: 9.5, fontWeight: 600, color: "var(--text-subtle)",
                   textTransform: "uppercase", letterSpacing: "0.08em" }}>

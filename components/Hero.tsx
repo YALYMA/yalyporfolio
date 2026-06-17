@@ -10,8 +10,8 @@ const TYPED_FR = ["Software Engineer","AI Engineer","Spécialiste Cloud & MLOps"
 
 function downloadCV() {
   const a = document.createElement("a");
-  a.href = "/cv-alex-dupont.pdf";
-  a.download = "CV-Alex-Dupont-AI-Engineer-MLOps.pdf";
+  a.href = "/mamadouyaly.pdf";
+  a.download = "mamadouyaly.pdf";
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 
@@ -195,7 +195,7 @@ export default function Hero() {
 
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:18 }}>
                 {[
-                  { label: lang==="fr" ? "Localisation" : "Location",      value:"Montréal 🇨🇦" },
+                  { label: lang==="fr" ? "Localisation" : "Location",      value:"Sénégal.SN" },
                   { label: lang==="fr" ? "Disponibilité" : "Availability",  value: lang==="fr" ? "Immédiate" : "Immediate" },
                   { label: lang==="fr" ? "Expérience" : "Experience",       value: lang==="fr" ? "5 ans" : "5 Years" },
                   { label: lang==="fr" ? "Langues" : "Languages",           value:"FR / EN (C1)" },

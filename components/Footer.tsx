@@ -6,8 +6,8 @@ import { NAV_LINKS } from "@/lib/data";
 
 function downloadCV() {
   const a = document.createElement("a");
-  a.href = "/cv-alex-dupont.pdf";
-  a.download = "CV-Yaly-AI-Engineer-MLOps.pdf";
+  a.href = "/mamadouyaly.pdf";
+  a.download = "mamadouyaly.pdf";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

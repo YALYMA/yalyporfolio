@@ -13,7 +13,7 @@ export const translations = {
     },
     hero: {
       available: "Available for new opportunities",
-      bio: "I design and ship production ML systems and cloud-native platforms — from model training to deployment at scale. Based in Canada, open to remote-first teams worldwide.",
+      bio: "I design and ship production ML systems and cloud-native platforms — from model training to deployment at scale. Based in Sénégal, open to remote-first teams worldwide.",
       location: "Dakar,SN ·Sénégal · Remote Worldwide",
       viewWork: "View my work",
       downloadCV: "Download Resume",
