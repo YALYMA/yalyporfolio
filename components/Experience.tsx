@@ -171,7 +171,7 @@ export default function Experience() {
                 {t.experience.inNumbers}
               </p>
               <dl style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(10px,2vw,18px)" }}>
-                {t.experience.stats.map((s) => (
+                {t.experience.stats.map((s: any) => (
                   <div key={s.label} style={{ textAlign: "center" }}>
                     <dt style={{ fontFamily: "Outfit, sans-serif",
                         fontSize: "clamp(24px,3.5vw,30px)", fontWeight: 900,
