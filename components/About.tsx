@@ -68,7 +68,8 @@ export default function About() {
 
             {/* Right — Values */}
             <div className="values-grid">
-              {t.about.values.map((v, i: number) => {
+              {/* Correction ici : ajout de 'v: any' pour satisfaire le compilateur de Vercel */}
+              {t.about.values.map((v: any, i: number) => {
                 const style = VALUE_STYLES[i] ?? VALUE_STYLES[0];
                 const Icon = style.icon;
                 return (
