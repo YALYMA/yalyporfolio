@@ -1,0 +1,53 @@
+{
+  "name": "Mamadou Yaly — Software Engineer | AI Engineer | Cloud & MLOps",
+  "short_name": "Mamadou Yaly",
+  "description": "Portfolio of Mamadou Yaly — Software Engineer specialized in AI Engineering and Cloud & MLOps",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["portfolio", "technology", "developer"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "url": "/#projects",
+      "description": "View projects"
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "url": "/#contact",
+      "description": "Get in touch"
+    }
+  ]
+}
