@@ -4,7 +4,7 @@ import { translations, Lang } from "./translations";
 
 interface LangContextType {
   lang: Lang;
-  t: any; // <-- C'est ici que la magie opère pour débloquer Vercel
+  t: any; // Parfait pour contourner la restriction stricte de Vercel !
   toggleLang: () => void;
 }
 
@@ -17,20 +17,23 @@ const LangContext = createContext<LangContextType>({
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
 
-  // Persist preference
+  // 1. Persistance : Charger la préférence au premier chargement
   useEffect(() => {
     const saved = localStorage.getItem("portfolio-lang") as Lang | null;
-    if (saved === "fr" || saved === "en") setLang(saved);
+    if (saved === "fr" || saved === "en") {
+      setLang(saved);
+    }
   }, []);
 
+  // 2. Synchronisation : Mettre à jour localStorage et l'attribut HTML à chaque fois que la langue change
+  useEffect(() => {
+    localStorage.setItem("portfolio-lang", lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  // 3. Action simple pour basculer la langue
   const toggleLang = () => {
-    setLang(prev => {
-      const next: Lang = prev === "en" ? "fr" : "en";
-      localStorage.setItem("portfolio-lang", next);
-      // Update html lang attribute for screen readers
-      document.documentElement.lang = next;
-      return next;
-    });
+    setLang(prev => (prev === "en" ? "fr" : "en"));
   };
 
   return (
