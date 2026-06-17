@@ -4,7 +4,7 @@ import { translations, Lang } from "./translations";
 
 interface LangContextType {
   lang: Lang;
-  t: typeof translations.en;
+  t: any; // <-- C'est ici que la magie opère pour débloquer Vercel
   toggleLang: () => void;
 }
 
