@@ -164,7 +164,7 @@ export default function Hero() {
 
             <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.62 }}
               style={{ display:"flex", alignItems:"center", gap:16, flexWrap:"wrap" }}>
-              {[{ Icon:Github, href:"https://https://https://github.com/YALYMA/-projet-progammation-fonctionnel-M1, label:"GitHub" },
+              {[{ Icon:Github, href:"https://github.com/YALYMA/-projet-progammation-fonctionnel-M1", label:"GitHub" },
                 { Icon:Linkedin, href:"https://linkedin.com", label:"LinkedIn" }]
                 .map(({ Icon, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
@@ -196,7 +196,7 @@ export default function Hero() {
                     background:"linear-gradient(135deg,#8b5cf6,#d946ef)",
                     display:"flex", alignItems:"center", justifyContent:"center",
                     color:"#fff", fontFamily:"Outfit,sans-serif", fontWeight:900, fontSize:21,
-                    boxShadow:"0 8px 24px rgba(139,92,246,0.38)" }} aria-label="Avatar Alex Dupont">MY</div>
+                    boxShadow:"0 8px 24px rgba(139,92,246,0.38)" }} aria-label="Avatar Mamadou Yaly">MY</div>
                 <div style={{ flex:1, minWidth:0 }}>
                   <h2 style={{ fontFamily:"Outfit,sans-serif", fontWeight:800, fontSize:18, color:"var(--text-primary)", margin:"0 0 2px" }}>Mamadou Yaly</h2>
                   <p style={{ color:"var(--text-muted)", fontSize:12.5, margin:"0 0 6px" }}>Software · AI · MLOps — 5 YOE</p>
