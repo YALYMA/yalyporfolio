@@ -7,8 +7,8 @@ import { NAV_LINKS } from "@/lib/data";
 function downloadCV() {
   try {
       const a = document.createElement("a");
-    a.href = "/cv-mamadou-yaly.pdf";
-    a.download = "CV-Mamadou-Yaly-AI-Engineer-MLOps.pdf";
+    a.href = "/mamadouyaly.pdf";
+    a.download = "mamadouyaly.pdf";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -38,11 +38,11 @@ export default function Footer() {
                   background: "linear-gradient(135deg, #8b5cf6, #d946ef)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   color: "#fff", fontFamily: "Outfit, sans-serif", fontWeight: 900, fontSize: 14,
-                  boxShadow: "0 4px 12px rgba(139,92,246,0.32)" }}>MY</div>
+                  boxShadow: "0 4px 12px rgba(139,92,246,0.32)" }}>AD</div>
               <div>
                 <p style={{ fontFamily: "Outfit, sans-serif", fontWeight: 800, fontSize: 15,
                     color: "var(--text-primary)", margin: 0 }}>
-                  Yaly<span style={{ color: "#8b5cf6" }}>.</span>dev
+                  Alex<span style={{ color: "#8b5cf6" }}>.</span>dev
                 </p>
                 <p style={{ fontSize: 11, color: "var(--text-subtle)", margin: 0 }}>
                   {lang === "fr" ? "Software Engineer · AI Engineer · Cloud & MLOps" : "Software Engineer · AI Engineer · Cloud & MLOps"}
@@ -99,8 +99,8 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
                 { label: t.footer.download, action: downloadCV },
-                { label: t.footer.viewGitHub, href: "https://github.com/alexdupont-dev" },
-                { label: t.footer.linkedin, href: "https://linkedin.com/in/alexdupont" },
+                { label: t.footer.viewGitHub, href: "https://github.com/" },
+                { label: t.footer.linkedin, href: "https://linkedin.com/" },
                 { label: t.footer.bookCall, href: "https://calendly.com" },
               ].map(item => (
                 item.href
@@ -151,7 +151,7 @@ export default function Footer() {
             display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 10 }}>
           <p style={{ fontSize: 12.5, color: "var(--text-subtle)", margin: 0,
               display: "flex", alignItems: "center", gap: 5, flexWrap: "wrap" }}>
-            © {new Date().getFullYear()} Yaly &mdash; Made with{" "}
+            © {new Date().getFullYear()} YALY &mdash; Made with{" "}
             <Heart size={11} color="#d946ef" fill="#d946ef" aria-label="love" />{" "}
             
           </p>

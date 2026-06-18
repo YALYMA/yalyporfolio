@@ -22,9 +22,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Alex Dupont", url: SITE_URL }],
   creator: "Alex Dupont",
   applicationName: "Alex Dupont Portfolio",
-  manifest: "/manifest.json",
   metadataBase: new URL(SITE_URL),
-  appleWebApp: { capable: true, statusBarStyle: "default", title: "Alex Dupont" },
   openGraph: {
     title: "Alex Dupont — Software Engineer | AI Engineer | Cloud & MLOps",
     description: "AI Engineer & MLOps Specialist · Production ML systems, LLM platforms, AWS/GCP · Open to remote worldwide",
@@ -55,11 +53,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" dir="ltr">
       <head>
-        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Alex Dupont" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
