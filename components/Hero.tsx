@@ -11,8 +11,8 @@ const TYPED_FR = ["Software Engineer","AI Engineer","Spécialiste Cloud & MLOps"
 function downloadCV() {
   try {
     const a = document.createElement("a");
-    a.href = "/cv-mamadou-yaly.pdf";
-    a.download = "CV-Mamadou-Yaly-AI-Engineer-MLOps.pdf";
+    a.href = "mamadouyaly.pdf";
+    a.download = "mamadouyaly.pdf";
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
   } catch { /* ignore */ }
 }
@@ -164,7 +164,7 @@ export default function Hero() {
 
             <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.62 }}
               style={{ display:"flex", alignItems:"center", gap:16, flexWrap:"wrap" }}>
-              {[{ Icon:Github, href:"https://github.com", label:"GitHub" },
+              {[{ Icon:Github, href:"https://https://https://github.com/YALYMA/-projet-progammation-fonctionnel-M1, label:"GitHub" },
                 { Icon:Linkedin, href:"https://linkedin.com", label:"LinkedIn" }]
                 .map(({ Icon, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}

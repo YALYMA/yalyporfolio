@@ -17,7 +17,7 @@ const DEFAULT_COLOR = SECTION_COLORS.home;
 
 function downloadCV() {
   const a = document.createElement("a");
-  a.href = "/mamadou-yaly.pdf";
+  a.href = "/mamadouyaly.pdf";
   a.download = "mamadouyaly.pdf";
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }

@@ -248,14 +248,14 @@ export const CONTACT_LINKS = [
     icon: "💼",
     label: "LinkedIn",
     value: "linkedin.com/in/mamadouyaly",
-    href: "https://linkedin.com/in/alexdupont",
+    href: "https://https://https://github.com/YALYMA/-projet-progammation-fonctionnel-M1",
     color: "hover:border-blue-400/50",
   },
   {
     icon: "🐙",
     label: "GitHub",
     value: "github.com/mamadouyaly-dev",
-    href: "https://github.com/devcode-dev",
+    href: "https://https://https://github.com/YALYMA/-projet-progammation-fonctionnel-M1",
     color: "hover:border-slate-400/50",
   },
   {
