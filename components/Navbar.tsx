@@ -17,8 +17,8 @@ const DEFAULT_COLOR = SECTION_COLORS.home;
 
 function downloadCV() {
   const a = document.createElement("a");
-  a.href = "/cv-mamadou-yaly.pdf";
-  a.download = "CV-Mamadou-Yaly-AI-Engineer-MLOps.pdf";
+  a.href = "/mamadou-yaly.pdf";
+  a.download = "mamadouyaly.pdf";
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 
