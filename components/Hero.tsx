@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, Github, Linkedin, MapPin, Sparkles, Download, ArrowRight, Star } from "lucide-react";
 import { useLang } from "@/lib/LanguageContext";
@@ -9,10 +9,12 @@ const TYPED_EN = ["Software Engineer","AI Engineer","Cloud & MLOps Specialist","
 const TYPED_FR = ["Software Engineer","AI Engineer","Spécialiste Cloud & MLOps","Contributeur Open Source"] as const;
 
 function downloadCV() {
-  const a = document.createElement("a");
-  a.href = "/mamadouyaly.pdf";
-  a.download = "mamadouyaly.pdf";
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  try {
+    const a = document.createElement("a");
+    a.href = "/cv-mamadou-yaly.pdf";
+    a.download = "CV-Mamadou-Yaly-AI-Engineer-MLOps.pdf";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  } catch { /* ignore */ }
 }
 
 function useTyping(strings: readonly string[], speed = 75, pause = 2400) {
@@ -33,25 +35,40 @@ function useTyping(strings: readonly string[], speed = 75, pause = 2400) {
 }
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount]     = useState(0);
   const [started, setStarted] = useState(false);
+  const spanRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = spanRef.current;
+    if (!el || started) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [started]);
+
   useEffect(() => {
     if (!started) return;
     const steps = 60; let cur = 0; const inc = target / steps;
-    const t = setInterval(() => {
+    const timer = setInterval(() => {
       cur += inc;
-      if (cur >= target) { setCount(target); clearInterval(t); return; }
+      if (cur >= target) { setCount(target); clearInterval(timer); return; }
       setCount(Math.floor(cur));
-    }, 1600/steps);
-    return () => clearInterval(t);
+    }, 1600 / steps);
+    return () => clearInterval(timer);
   }, [started, target]);
+
   return (
-    <motion.span onViewportEnter={() => setStarted(true)}
+    <span ref={spanRef}
       style={{ fontFamily: "Outfit,sans-serif", fontSize: "clamp(22px,3.5vw,30px)", fontWeight: 900,
         background: "linear-gradient(135deg,#d946ef,#8b5cf6)",
-        WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+        WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+        display: "inline-block" }}>
       {count}{suffix}
-    </motion.span>
+    </span>
   );
 }
 
@@ -135,7 +152,7 @@ export default function Hero() {
             <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.5 }}
               style={{ display:"flex", flexWrap:"wrap", gap:12, marginBottom:32 }}>
               <motion.button type="button" whileHover={{ scale:1.04 }} whileTap={{ scale:0.96 }}
-                onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior:"smooth" })}
+                onClick={() => { try { document.querySelector("#projects")?.scrollIntoView({ behavior:"smooth" }); } catch { /**/ } }}
                 className="btn-primary">
                 {t.hero.viewWork} <ArrowRight size={15} aria-hidden="true" />
               </motion.button>
@@ -147,8 +164,8 @@ export default function Hero() {
 
             <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.62 }}
               style={{ display:"flex", alignItems:"center", gap:16, flexWrap:"wrap" }}>
-              {[{ Icon:Github, href:"https://https://github.com/YALYMA/-projet-progammation-fonctionnel-M1", label:"GitHub" },
-                { Icon:Linkedin, href:"https://www.linkedin.com/in/mamadou-yaly-85284b294", label:"LinkedIn" }]
+              {[{ Icon:Github, href:"https://github.com", label:"GitHub" },
+                { Icon:Linkedin, href:"https://linkedin.com", label:"LinkedIn" }]
                 .map(({ Icon, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                     style={{ display:"flex", alignItems:"center", gap:6, color:"var(--text-muted)",
@@ -179,7 +196,7 @@ export default function Hero() {
                     background:"linear-gradient(135deg,#8b5cf6,#d946ef)",
                     display:"flex", alignItems:"center", justifyContent:"center",
                     color:"#fff", fontFamily:"Outfit,sans-serif", fontWeight:900, fontSize:21,
-                    boxShadow:"0 8px 24px rgba(139,92,246,0.38)" }} aria-label="Avatar Alex Dupont">MA</div>
+                    boxShadow:"0 8px 24px rgba(139,92,246,0.38)" }} aria-label="Avatar Alex Dupont">MY</div>
                 <div style={{ flex:1, minWidth:0 }}>
                   <h2 style={{ fontFamily:"Outfit,sans-serif", fontWeight:800, fontSize:18, color:"var(--text-primary)", margin:"0 0 2px" }}>Mamadou Yaly</h2>
                   <p style={{ color:"var(--text-muted)", fontSize:12.5, margin:"0 0 6px" }}>Software · AI · MLOps — 5 YOE</p>
@@ -195,7 +212,7 @@ export default function Hero() {
 
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:18 }}>
                 {[
-                  { label: lang==="fr" ? "Localisation" : "Location",      value:"Sénégal.SN" },
+                  { label: lang==="fr" ? "Localisation" : "Location",      value:"Sénégal.Sn" },
                   { label: lang==="fr" ? "Disponibilité" : "Availability",  value: lang==="fr" ? "Immédiate" : "Immediate" },
                   { label: lang==="fr" ? "Expérience" : "Experience",       value: lang==="fr" ? "5 ans" : "5 Years" },
                   { label: lang==="fr" ? "Langues" : "Languages",           value:"FR / EN (C1)" },

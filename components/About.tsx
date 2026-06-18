@@ -68,12 +68,13 @@ export default function About() {
 
             {/* Right — Values */}
             <div className="values-grid">
-              {/* Correction ici : ajout de 'v: any' pour satisfaire le compilateur de Vercel */}
-              {t.about.values.map((v: any, i: number) => {
+              {t.about.values.map((v, i: number) => {
                 const style = VALUE_STYLES[i] ?? VALUE_STYLES[0];
                 const Icon = style.icon;
                 return (
-                  <motion.div key={v.title} variants={fade} whileHover={{ scale: 1.025, y: -3 }} className="card" style={{ padding: "clamp(14px,2vw,20px)" }}>
+                  <motion.div key={v.title} variants={fade} className="card" style={{ padding: "clamp(14px,2vw,20px)", transition: "transform 0.2s, box-shadow 0.2s" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px) scale(1.02)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; }}>
                     <div aria-hidden="true" style={{ width: 38, height: 38, borderRadius: 11, background: style.bg, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 11 }}>
                       <Icon size={17} color={style.color} />
                     </div>

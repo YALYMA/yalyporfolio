@@ -4,7 +4,7 @@ import { translations, Lang } from "./translations";
 
 interface LangContextType {
   lang: Lang;
-  t: any; // Parfait pour contourner la restriction stricte de Vercel !
+  t: typeof translations.en;
   toggleLang: () => void;
 }
 
@@ -17,23 +17,23 @@ const LangContext = createContext<LangContextType>({
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
 
-  // 1. Persistance : Charger la préférence au premier chargement
+  // Persist preference
   useEffect(() => {
-    const saved = localStorage.getItem("portfolio-lang") as Lang | null;
-    if (saved === "fr" || saved === "en") {
-      setLang(saved);
-    }
+    try {
+      const saved = localStorage.getItem("portfolio-lang") as Lang | null;
+      if (saved === "fr" || saved === "en") setLang(saved);
+    } catch { /* private browsing or storage blocked */ }
   }, []);
 
-  // 2. Synchronisation : Mettre à jour localStorage et l'attribut HTML à chaque fois que la langue change
-  useEffect(() => {
-    localStorage.setItem("portfolio-lang", lang);
-    document.documentElement.lang = lang;
-  }, [lang]);
-
-  // 3. Action simple pour basculer la langue
   const toggleLang = () => {
-    setLang(prev => (prev === "en" ? "fr" : "en"));
+    setLang(prev => {
+      const next: Lang = prev === "en" ? "fr" : "en";
+      try {
+        localStorage.setItem("portfolio-lang", next);
+        document.documentElement.lang = next;
+      } catch { /* ignore storage errors */ }
+      return next;
+    });
   };
 
   return (
